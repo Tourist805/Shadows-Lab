@@ -84,6 +84,9 @@
     <ClCompile Include="helper\frustum.cpp">
       <Filter>helper</Filter>
     </ClCompile>
+    <ClCompile Include="scene_pcf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag">
@@ -102,6 +105,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shader\solid.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\pcf.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\pcf.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
@@ -183,6 +192,9 @@
     </ClInclude>
     <ClInclude Include="helper\frustum.h">
       <Filter>helper</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_pcf.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
