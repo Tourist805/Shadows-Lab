@@ -106,7 +106,7 @@ void Scene_Soft::buildJitterTex()
 	int size = jitterMapSize;
 	int samples = samplesU * samplesV;
 	int buffSize = size * size * samples * 2;
-	float* data = new float[buffSize];
+	float *data = new float[buffSize];
 
 	for (int i = 0; i < size; i++)
 	{
