@@ -165,6 +165,7 @@
     <ClCompile Include="scenebasic_uniform.cpp" />
     <ClCompile Include="scene_pcf.cpp" />
     <ClCompile Include="scene_shadowmap.cpp" />
+    <ClCompile Include="scene_soft.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag" />
@@ -173,6 +174,8 @@
     <None Include="shader\pcf.vert" />
     <None Include="shader\shadow_map.frag" />
     <None Include="shader\shadow_map.vert" />
+    <None Include="shader\soft_shadows.frag" />
+    <None Include="shader\soft_shadows.vert" />
     <None Include="shader\solid.frag" />
     <None Include="shader\solid.vert" />
   </ItemGroup>
@@ -204,6 +207,7 @@
     <ClInclude Include="scenebasic_uniform.h" />
     <ClInclude Include="scene_pcf.h" />
     <ClInclude Include="scene_shadowmap.h" />
+    <ClInclude Include="scene_soft.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

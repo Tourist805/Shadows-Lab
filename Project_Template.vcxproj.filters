@@ -87,6 +87,9 @@
     <ClCompile Include="scene_pcf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="scene_soft.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag">
@@ -111,6 +114,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shader\pcf.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\soft_shadows.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\soft_shadows.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
@@ -194,6 +203,9 @@
       <Filter>helper</Filter>
     </ClInclude>
     <ClInclude Include="scene_pcf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_soft.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
