@@ -14,7 +14,7 @@ using glm::vec4;
 Scene_Pcf::Scene_Pcf() : tPrev(0), shadowMapWidth(512), shadowMapHeight(512),
 plane(20.0f, 20.0f, 1, 1)
 {
-    mesh = ObjMesh::load("../media/building.obj");
+    mesh = ObjMesh::load("../Shadows-Lab/media/building.obj");
 }
 
 void Scene_Pcf::initScene()
