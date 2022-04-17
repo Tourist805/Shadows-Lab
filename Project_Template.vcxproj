@@ -165,6 +165,7 @@
     <ClCompile Include="scenebasic_uniform.cpp" />
     <ClCompile Include="scene_pcf.cpp" />
     <ClCompile Include="scene_shadowmap.cpp" />
+    <ClCompile Include="scene_shadowvolume.cpp" />
     <ClCompile Include="scene_soft.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +175,13 @@
     <None Include="shader\pcf.vert" />
     <None Include="shader\shadow_map.frag" />
     <None Include="shader\shadow_map.vert" />
+    <None Include="shader\shadow_volume.frag" />
+    <None Include="shader\shadow_volume.geom" />
+    <None Include="shader\shadow_volume.vert" />
+    <None Include="shader\shadow_volume_compute.frag" />
+    <None Include="shader\shadow_volume_compute.vert" />
+    <None Include="shader\shadow_volume_render.frag" />
+    <None Include="shader\shadow_volume_render.vert" />
     <None Include="shader\soft_shadows.frag" />
     <None Include="shader\soft_shadows.vert" />
     <None Include="shader\solid.frag" />
@@ -207,6 +215,7 @@
     <ClInclude Include="scenebasic_uniform.h" />
     <ClInclude Include="scene_pcf.h" />
     <ClInclude Include="scene_shadowmap.h" />
+    <ClInclude Include="scene_shadowvolume.h" />
     <ClInclude Include="scene_soft.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
