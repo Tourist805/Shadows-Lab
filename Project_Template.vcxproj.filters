@@ -25,6 +25,15 @@
     <Filter Include="helper\stb">
       <UniqueIdentifier>{2eeab77b-5d84-4893-b9df-1b2ed789b189}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shaders\shadowsLab8">
+      <UniqueIdentifier>{b5d678bc-92d9-41b3-b3c3-8de0f081c7ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\shadowsLab8">
+      <UniqueIdentifier>{7d373095-f723-421c-ac9d-8572b3cc8045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\shadowsLab8">
+      <UniqueIdentifier>{f503e749-4fa7-44e3-b58e-3feff5cdcc8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -78,72 +87,84 @@
     <ClCompile Include="helper\stb\stb_image.cpp">
       <Filter>helper\stb</Filter>
     </ClCompile>
-    <ClCompile Include="scene_shadowmap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="helper\frustum.cpp">
       <Filter>helper</Filter>
     </ClCompile>
     <ClCompile Include="scene_pcf.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\shadowsLab8</Filter>
     </ClCompile>
-    <ClCompile Include="scene_soft.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="scene_shadowmap.cpp">
+      <Filter>Source Files\shadowsLab8</Filter>
     </ClCompile>
     <ClCompile Include="scene_shadowvolume.cpp">
+      <Filter>Source Files\shadowsLab8</Filter>
+    </ClCompile>
+    <ClCompile Include="scene_soft.cpp">
+      <Filter>Source Files\shadowsLab8</Filter>
+    </ClCompile>
+    <ClCompile Include="scene_cloud.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="helper\noisetex.cpp">
+      <Filter>helper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag">
-      <Filter>shaders</Filter>
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
     <None Include="shader\basic_uniform.vert">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\shadow_map.frag">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\shadow_map.vert">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\solid.frag">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\solid.vert">
-      <Filter>shaders</Filter>
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
     <None Include="shader\pcf.frag">
-      <Filter>shaders</Filter>
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
     <None Include="shader\pcf.vert">
-      <Filter>shaders</Filter>
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
-    <None Include="shader\soft_shadows.frag">
-      <Filter>shaders</Filter>
+    <None Include="shader\shadow_map.frag">
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
-    <None Include="shader\soft_shadows.vert">
-      <Filter>shaders</Filter>
+    <None Include="shader\shadow_map.vert">
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
     <None Include="shader\shadow_volume.frag">
-      <Filter>shaders</Filter>
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
     <None Include="shader\shadow_volume.geom">
-      <Filter>shaders</Filter>
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
     <None Include="shader\shadow_volume.vert">
-      <Filter>shaders</Filter>
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
     <None Include="shader\shadow_volume_compute.frag">
-      <Filter>shaders</Filter>
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
     <None Include="shader\shadow_volume_compute.vert">
-      <Filter>shaders</Filter>
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
     <None Include="shader\shadow_volume_render.frag">
-      <Filter>shaders</Filter>
+      <Filter>shaders\shadowsLab8</Filter>
     </None>
     <None Include="shader\shadow_volume_render.vert">
+      <Filter>shaders\shadowsLab8</Filter>
+    </None>
+    <None Include="shader\soft_shadows.frag">
+      <Filter>shaders\shadowsLab8</Filter>
+    </None>
+    <None Include="shader\soft_shadows.vert">
+      <Filter>shaders\shadowsLab8</Filter>
+    </None>
+    <None Include="shader\solid.frag">
+      <Filter>shaders\shadowsLab8</Filter>
+    </None>
+    <None Include="shader\solid.vert">
+      <Filter>shaders\shadowsLab8</Filter>
+    </None>
+    <None Include="shader\cloud_effect.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\cloud_effect.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
@@ -220,20 +241,26 @@
     <ClInclude Include="helper\utils.h">
       <Filter>helper</Filter>
     </ClInclude>
-    <ClInclude Include="scene_shadowmap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="helper\frustum.h">
       <Filter>helper</Filter>
     </ClInclude>
     <ClInclude Include="scene_pcf.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\shadowsLab8</Filter>
     </ClInclude>
-    <ClInclude Include="scene_soft.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="scene_shadowmap.h">
+      <Filter>Header Files\shadowsLab8</Filter>
     </ClInclude>
     <ClInclude Include="scene_shadowvolume.h">
+      <Filter>Header Files\shadowsLab8</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_soft.h">
+      <Filter>Header Files\shadowsLab8</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_cloud.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="helper\noisetex.h">
+      <Filter>helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -151,6 +151,7 @@
     <ClCompile Include="helper\glslprogram.cpp" />
     <ClCompile Include="helper\glutils.cpp" />
     <ClCompile Include="helper\grid.cpp" />
+    <ClCompile Include="helper\noisetex.cpp" />
     <ClCompile Include="helper\objmesh.cpp" />
     <ClCompile Include="helper\plane.cpp" />
     <ClCompile Include="helper\skybox.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="helper\trianglemesh.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scenebasic_uniform.cpp" />
+    <ClCompile Include="scene_cloud.cpp" />
     <ClCompile Include="scene_pcf.cpp" />
     <ClCompile Include="scene_shadowmap.cpp" />
     <ClCompile Include="scene_shadowvolume.cpp" />
@@ -171,6 +173,8 @@
   <ItemGroup>
     <None Include="shader\basic_uniform.frag" />
     <None Include="shader\basic_uniform.vert" />
+    <None Include="shader\cloud_effect.frag" />
+    <None Include="shader\cloud_effect.vert" />
     <None Include="shader\pcf.frag" />
     <None Include="shader\pcf.vert" />
     <None Include="shader\shadow_map.frag" />
@@ -195,6 +199,7 @@
     <ClInclude Include="helper\glslprogram.h" />
     <ClInclude Include="helper\glutils.h" />
     <ClInclude Include="helper\grid.h" />
+    <ClInclude Include="helper\noisetex.h" />
     <ClInclude Include="helper\objmesh.h" />
     <ClInclude Include="helper\particleutils.h" />
     <ClInclude Include="helper\plane.h" />
@@ -213,6 +218,7 @@
     <ClInclude Include="helper\trianglemesh.h" />
     <ClInclude Include="helper\utils.h" />
     <ClInclude Include="scenebasic_uniform.h" />
+    <ClInclude Include="scene_cloud.h" />
     <ClInclude Include="scene_pcf.h" />
     <ClInclude Include="scene_shadowmap.h" />
     <ClInclude Include="scene_shadowvolume.h" />
