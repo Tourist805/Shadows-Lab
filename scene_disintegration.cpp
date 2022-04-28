@@ -21,11 +21,12 @@ void Scene_Disintegration::initScene()
 
     prog.setUniform("NoiseTex", 0);
 
-    GLuint noiseTex = NoiseTex::generate2DTex(10.0f);
+    GLuint noiseTex = NoiseTex::generate2DTex(100.0f);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, noiseTex);
 
-    prog.setUniform("Light.Intensity", vec3(1.0f, 1.0f, 1.0f));
+    prog.setUniform("Light.L", vec3(1.0f, 1.0f, 1.0f));
+    prog.setUniform("Light.La", vec3(0.2f, 0.2f, 0.7f));
     lightPos = vec4(0.0f, 0.0f, 0.0f, 1.0f);
     prog.setUniform("LowThreshold", 0.45f);
     prog.setUniform("HighThreshold", 0.65f);
@@ -52,6 +53,7 @@ void Scene_Disintegration::drawScene()
     model = glm::rotate(model, glm::radians(-90.0f), vec3(1.0f, 0.0f, 0.0f));
     setMatrices();
 
+    prog.setUniform("Material.Ka", 0.5f, 0.5f, 0.5f);
     prog.setUniform("Material.Kd", 0.7f, 0.5f, 0.3f);
     prog.setUniform("Material.Ks", 1.0f, 1.0f, 1.0f);
     prog.setUniform("Material.Shininess", 100.0f);

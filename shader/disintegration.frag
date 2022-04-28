@@ -26,21 +26,21 @@ uniform struct MaterialInfo
 	float Shininess;
 } Material;
 
-vec3 phongModel(vec4 position, vec3 normal)
+vec3 phongModel()
 {
-	vec3 ambient = Light.La * Material.Ka;
-	vec3 s = normalize(Light.Position.xyz - position.xyz);
-	float sDotN = max(dot(s, normal), 0.0);
-	vec3 diffuse = Material.Kd * sDotN;
+	vec3 ambient = Material.Ka * Light.La;
+	vec3 n = Normal;
+    vec3 s = normalize(Light.Position.xyz - Position.xyz);
+    vec3 v = normalize(-Position.xyz);
+    vec3 r = reflect( -s, n );
+    float sDotN = max( dot(s,n), 0.0 );
+    vec3 diffuse = Light.L * Material.Kd * sDotN;
+    vec3 spec = vec3(0.0);
+    if( sDotN > 0.0 )
+        spec = Light.L * Material.Ks *
+            pow( max( dot(r,v), 0.0 ), Material.Shininess );
 
-	vec3 specular = vec3(0.0);
-	if(sDotN > 0.0)
-	{
-		vec3 v = normalize(-position.xyz);
-		vec3 h = normalize(v + s);
-		specular = Material.Ks * pow(max(dot(h, normal), 0.0), Material.Shininess);
-	}
-	return ambient + Light.L * (specular + diffuse);
+    return ambient + diffuse + spec;
 }
 
 void main()
@@ -52,6 +52,6 @@ void main()
 		discard;
 
 	// olour the fragment using the shading model
-	vec3 colour = phongModel(Position, Normal);
+	vec3 colour = phongModel();
 	FragColor = vec4(colour, 1.0);
 }
