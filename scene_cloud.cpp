@@ -49,8 +49,8 @@ void Scene_Cloud::initScene()
     glEnableVertexAttribArray(0);  // Vertex position
 
     glBindBuffer(GL_ARRAY_BUFFER, handle[1]);
-    glVertexAttribPointer((GLuint)2, 2, GL_FLOAT, GL_FALSE, 0, ((GLubyte*)NULL + (0)));
-    glEnableVertexAttribArray(2);  // Texture coordinates
+    glVertexAttribPointer((GLuint)1, 2, GL_FLOAT, GL_FALSE, 0, ((GLubyte*)NULL + (0)));
+    glEnableVertexAttribArray(1);  // Texture coordinates
 
     glBindVertexArray(0);
 
