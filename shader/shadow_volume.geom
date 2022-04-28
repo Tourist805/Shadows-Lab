@@ -1,7 +1,7 @@
-#version 460
+#version 430
 
 layout(triangles_adjacency) in;
-layout(triangle_strip, max_vertices = 128) out;
+layout(triangle_strip, max_vertices = 18) out;
 
 in vec3 VPosition[];
 in vec3 VNormal[];
@@ -44,9 +44,9 @@ void main()
 	{
 		if(!facesLight(VPosition[0], VPosition[1], VPosition[2]))
 			emitEdgeQuad(VPosition[0], VPosition[2]);
-		if(!facesLight(VPosition[0], VPosition[1], VPosition[2]))
+		if(!facesLight(VPosition[2], VPosition[3], VPosition[4]))
 			emitEdgeQuad(VPosition[2], VPosition[4]);
-		if(!facesLight(VPosition[0], VPosition[1], VPosition[2]))
+		if(!facesLight(VPosition[4], VPosition[5], VPosition[0]))
 			emitEdgeQuad(VPosition[4], VPosition[0]);
 	}
 }

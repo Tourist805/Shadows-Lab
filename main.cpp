@@ -3,7 +3,8 @@
 //#include "scenebasic_uniform.h"
 //#include "scene_soft.h"
 //#include "scene_cloud.h"
-#include "woodgrain_scene.h"
+//#include "woodgrain_scene.h"
+#include "scene_shadowvolume.h"
 
 
 int main(int argc, char* argv[])
@@ -14,6 +15,7 @@ int main(int argc, char* argv[])
 
 	//scene = std::unique_ptr<Scene>(new Scene_Soft());
 	//scene = std::unique_ptr<Scene>(new Scene_Cloud());
-	scene = std::unique_ptr<Scene>(new WoodGrain_Scene());
+	//scene = std::unique_ptr<Scene>(new WoodGrain_Scene());
+	scene = std::unique_ptr<Scene>(new Scene_ShadowVolume());
 	return runner.run(*scene);
 }

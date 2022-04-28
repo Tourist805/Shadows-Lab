@@ -1,4 +1,4 @@
-#version 460
+#version 430
 
 layout(binding = 0) uniform sampler2D NoiseTex;
 

@@ -54,7 +54,7 @@ void Scene_ShadowVolume::initScene()
 	// Load textures
 	glActiveTexture(GL_TEXTURE2);
 	spotTex = Texture::loadTexture("../Shadows-Lab/media/spot/spot_texture.png");
-	brickTex = Texture::loadTexture("../Shadows-Lab/media/texture/brick1.png");
+	brickTex = Texture::loadTexture("../Shadows-Lab/media/texture/brick1.jpg");
 
 	updateLight();
 
@@ -128,7 +128,10 @@ void Scene_ShadowVolume::update(float t)
 
 	if (animating()) {
 		angle += deltaT * rotSpeed;
-		if (angle > glm::two_pi<float>()) angle -= glm::two_pi<float>();
+
+		if (angle > glm::two_pi<float>()) 
+			angle -= glm::two_pi<float>();
+		
 		updateLight();
 	}
 }
