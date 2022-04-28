@@ -111,6 +111,9 @@
     <ClCompile Include="woodgrain_scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="scene_disintegration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag">
@@ -174,6 +177,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shader\wood_grain.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\disintegration.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\disintegration.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
@@ -272,6 +281,9 @@
       <Filter>helper</Filter>
     </ClInclude>
     <ClInclude Include="woodgrain_scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_disintegration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

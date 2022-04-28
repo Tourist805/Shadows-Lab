@@ -165,6 +165,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scenebasic_uniform.cpp" />
     <ClCompile Include="scene_cloud.cpp" />
+    <ClCompile Include="scene_disintegration.cpp" />
     <ClCompile Include="scene_pcf.cpp" />
     <ClCompile Include="scene_shadowmap.cpp" />
     <ClCompile Include="scene_shadowvolume.cpp" />
@@ -176,6 +177,8 @@
     <None Include="shader\basic_uniform.vert" />
     <None Include="shader\cloud_effect.frag" />
     <None Include="shader\cloud_effect.vert" />
+    <None Include="shader\disintegration.frag" />
+    <None Include="shader\disintegration.vert" />
     <None Include="shader\pcf.frag" />
     <None Include="shader\pcf.vert" />
     <None Include="shader\shadow_map.frag" />
@@ -222,6 +225,7 @@
     <ClInclude Include="helper\utils.h" />
     <ClInclude Include="scenebasic_uniform.h" />
     <ClInclude Include="scene_cloud.h" />
+    <ClInclude Include="scene_disintegration.h" />
     <ClInclude Include="scene_pcf.h" />
     <ClInclude Include="scene_shadowmap.h" />
     <ClInclude Include="scene_shadowvolume.h" />
