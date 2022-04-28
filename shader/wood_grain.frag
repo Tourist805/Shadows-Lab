@@ -23,7 +23,7 @@ void main()
 	dist += noise.b;
 
 	// Determine the colour as a mixture of light and dark wood colours
-	float t = 1.0 - abs(fract(dist) * 2.0 - 1.0);
+	float t = 1.0 - abs(fract(dist) * 10.0 - 1.0);
 	t = smoothstep(0.2, 0.5, t);
 	vec4 colour = mix(DarkWoodColour, LightWoodColour, t);
 
