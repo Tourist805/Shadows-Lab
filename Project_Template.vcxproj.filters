@@ -108,6 +108,9 @@
     <ClCompile Include="helper\noisetex.cpp">
       <Filter>helper</Filter>
     </ClCompile>
+    <ClCompile Include="woodgrain_scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag">
@@ -165,6 +168,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shader\cloud_effect.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\wood_grain.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\wood_grain.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
@@ -261,6 +270,9 @@
     </ClInclude>
     <ClInclude Include="helper\noisetex.h">
       <Filter>helper</Filter>
+    </ClInclude>
+    <ClInclude Include="woodgrain_scene.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

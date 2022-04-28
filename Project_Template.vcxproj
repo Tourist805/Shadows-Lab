@@ -169,6 +169,7 @@
     <ClCompile Include="scene_shadowmap.cpp" />
     <ClCompile Include="scene_shadowvolume.cpp" />
     <ClCompile Include="scene_soft.cpp" />
+    <ClCompile Include="woodgrain_scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag" />
@@ -190,6 +191,8 @@
     <None Include="shader\soft_shadows.vert" />
     <None Include="shader\solid.frag" />
     <None Include="shader\solid.vert" />
+    <None Include="shader\wood_grain.frag" />
+    <None Include="shader\wood_grain.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="helper\aabb.h" />
@@ -223,6 +226,7 @@
     <ClInclude Include="scene_shadowmap.h" />
     <ClInclude Include="scene_shadowvolume.h" />
     <ClInclude Include="scene_soft.h" />
+    <ClInclude Include="woodgrain_scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
