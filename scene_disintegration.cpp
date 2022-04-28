@@ -21,7 +21,7 @@ void Scene_Disintegration::initScene()
 
     prog.setUniform("NoiseTex", 0);
 
-    GLuint noiseTex = NoiseTex::generate2DTex(100.0f);
+    GLuint noiseTex = NoiseTex::generate2DTex(30.0f);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, noiseTex);
 
