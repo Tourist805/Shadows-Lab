@@ -117,6 +117,9 @@
     <ClCompile Include="scene_night.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="scene_paint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag">
@@ -192,6 +195,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shader\night_vision.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\paint_spatter.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\paint_spatter.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
@@ -296,6 +305,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="scene_night.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_paint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
