@@ -6,7 +6,8 @@
 //#include "woodgrain_scene.h"
 //#include "scene_shadowvolume.h"
 //#include "scene_disintegration.h"
-#include "scene_paint.h"
+//#include "scene_paint.h"
+#include "scene_night.h"
 
 
 int main(int argc, char* argv[])
@@ -20,6 +21,7 @@ int main(int argc, char* argv[])
 	//scene = std::unique_ptr<Scene>(new WoodGrain_Scene());
 	//scene = std::unique_ptr<Scene>(new Scene_ShadowVolume());
 	//scene = std::unique_ptr<Scene>(new Scene_Disintegration());
-	scene = std::unique_ptr<Scene>(new Scene_Paint());
+	//scene = std::unique_ptr<Scene>(new Scene_Paint());
+	scene = std::unique_ptr<Scene>(new Scene_Night());
 	return runner.run(*scene);
 }

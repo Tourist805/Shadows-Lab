@@ -11,7 +11,7 @@ uniform float Radius;
 layout(binding = 0) uniform sampler2D RenderTex;
 layout(binding = 1) uniform sampler2D NoiseTex;
 
-subroutine vec4 RenderPassType()
+subroutine vec4 RenderPassType();
 subroutine uniform RenderPassType RenderPass;
 
 uniform struct LightInfo
@@ -63,15 +63,15 @@ vec4 pass2()
 {
     vec4 noise = texture(NoiseTex, TexCoord);
     vec4 colour = texture(RenderTex, TexCoord);
-    float green = luminance(color.rgb);
+    float green = luminance(colour.rgb);
 
-    float dist1 = lenth(gl_FragCoord.xy - vec2(Width / 4.0, Height / 2.0));
-    float dist2 = length(gl_FragCoord.xy - vec2(3.0 * Width/4.0, Height/2.0));
-    
-    if( dist1 > Radius && dist2 > Radius ) 
-    green = 0.0;
+    float dist1 = length(gl_FragCoord.xy - vec2(Width / 4.0, Height / 2.0));
+    float dist2 = length(gl_FragCoord.xy - vec2(3.0 * Width / 4.0, Height / 2.0));
 
-    return vec4(0.0, green * clamp( noise.a, 0.0, 1.0) , 0.0 ,1.0);
+    if(dist1 > Radius && dist2 > Radius) 
+        green = 0.0;
+
+    return vec4(0.0, green * clamp(noise.a, 0.0, 1.0), 0.0, 1.0);
 }
 
 void main()

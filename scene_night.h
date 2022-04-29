@@ -26,7 +26,7 @@ private:
     float angle;
 
     void setMatrices();
-    void compileAndLinkShader();
+    void compile();
     void setupFBO();
     void pass1();
     void pass2();
