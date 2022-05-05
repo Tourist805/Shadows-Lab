@@ -22,7 +22,7 @@ layout(location = 0) out vec4 FragColor;
 
 float ggxDistribution(float nDotH)
 {
-	float alpha2 = Material.Rough * Material.Rough * Material.Rough;
+	float alpha2 = Material.Rough * Material.Rough * Material.Rough  * Material.Rough;
 	float d = (nDotH * nDotH) * (alpha2 - 1) + 1;
 	return alpha2 / (PI * d * d);
 }
