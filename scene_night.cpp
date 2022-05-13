@@ -74,7 +74,7 @@ void Scene_Night::initScene()
 
 	prog.setUniform("Width", width);
 	prog.setUniform("Height", height);
-	prog.setUniform("Radius", width / 3.5f);
+	prog.setUniform("Radius", width / 3.0f);
 	prog.setUniform("Light.L", vec3(1.0f, 1.0f, 1.0f));
 	prog.setUniform("Light.La", vec3(1.0f, 1.0f, 1.0f));
 

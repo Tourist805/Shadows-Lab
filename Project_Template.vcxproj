@@ -169,6 +169,7 @@
     <ClCompile Include="scene_hdr.cpp" />
     <ClCompile Include="scene_night.cpp" />
     <ClCompile Include="scene_paint.cpp" />
+    <ClCompile Include="scene_pbr.cpp" />
     <ClCompile Include="scene_pcf.cpp" />
     <ClCompile Include="scene_shadowmap.cpp" />
     <ClCompile Include="scene_shadowvolume.cpp" />
@@ -190,6 +191,8 @@
     <None Include="shader\night_vision.vert" />
     <None Include="shader\paint_spatter.frag" />
     <None Include="shader\paint_spatter.vert" />
+    <None Include="shader\pbr.frag" />
+    <None Include="shader\pbr.vert" />
     <None Include="shader\pcf.frag" />
     <None Include="shader\pcf.vert" />
     <None Include="shader\shadow_map.frag" />
@@ -240,6 +243,7 @@
     <ClInclude Include="scene_hdr.h" />
     <ClInclude Include="scene_night.h" />
     <ClInclude Include="scene_paint.h" />
+    <ClInclude Include="scene_pbr.h" />
     <ClInclude Include="scene_pcf.h" />
     <ClInclude Include="scene_shadowmap.h" />
     <ClInclude Include="scene_shadowvolume.h" />
