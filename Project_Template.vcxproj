@@ -166,6 +166,7 @@
     <ClCompile Include="scenebasic_uniform.cpp" />
     <ClCompile Include="scene_cloud.cpp" />
     <ClCompile Include="scene_disintegration.cpp" />
+    <ClCompile Include="scene_hdr.cpp" />
     <ClCompile Include="scene_night.cpp" />
     <ClCompile Include="scene_paint.cpp" />
     <ClCompile Include="scene_pcf.cpp" />
@@ -181,6 +182,10 @@
     <None Include="shader\cloud_effect.vert" />
     <None Include="shader\disintegration.frag" />
     <None Include="shader\disintegration.vert" />
+    <None Include="shader\hdr.frag" />
+    <None Include="shader\hdr.vert" />
+    <None Include="shader\lighting.frag" />
+    <None Include="shader\lighting.vert" />
     <None Include="shader\night_vision.frag" />
     <None Include="shader\night_vision.vert" />
     <None Include="shader\paint_spatter.frag" />
@@ -232,6 +237,7 @@
     <ClInclude Include="scenebasic_uniform.h" />
     <ClInclude Include="scene_cloud.h" />
     <ClInclude Include="scene_disintegration.h" />
+    <ClInclude Include="scene_hdr.h" />
     <ClInclude Include="scene_night.h" />
     <ClInclude Include="scene_paint.h" />
     <ClInclude Include="scene_pcf.h" />

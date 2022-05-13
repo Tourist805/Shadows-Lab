@@ -34,6 +34,15 @@
     <Filter Include="Header Files\shadowsLab8">
       <UniqueIdentifier>{f503e749-4fa7-44e3-b58e-3feff5cdcc8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shaders\noiseLab">
+      <UniqueIdentifier>{9764fe20-5e25-41be-a188-8abc56f18188}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\noiseLab">
+      <UniqueIdentifier>{207e0b0d-b807-4e60-bb10-40a9eea4a838}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\noiseLab">
+      <UniqueIdentifier>{cc23291d-6ba0-4e5a-893c-13f5cfddd485}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,9 +56,6 @@
     </ClCompile>
     <ClCompile Include="helper\glslprogram.cpp">
       <Filter>helper</Filter>
-    </ClCompile>
-    <ClCompile Include="scenebasic_uniform.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="helper\torus.cpp">
       <Filter>helper</Filter>
@@ -102,22 +108,28 @@
     <ClCompile Include="scene_soft.cpp">
       <Filter>Source Files\shadowsLab8</Filter>
     </ClCompile>
-    <ClCompile Include="scene_cloud.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="helper\noisetex.cpp">
       <Filter>helper</Filter>
     </ClCompile>
-    <ClCompile Include="woodgrain_scene.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="scene_cloud.cpp">
+      <Filter>Source Files\noiseLab</Filter>
     </ClCompile>
     <ClCompile Include="scene_disintegration.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\noiseLab</Filter>
     </ClCompile>
     <ClCompile Include="scene_night.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\noiseLab</Filter>
     </ClCompile>
     <ClCompile Include="scene_paint.cpp">
+      <Filter>Source Files\noiseLab</Filter>
+    </ClCompile>
+    <ClCompile Include="scenebasic_uniform.cpp">
+      <Filter>Source Files\noiseLab</Filter>
+    </ClCompile>
+    <ClCompile Include="woodgrain_scene.cpp">
+      <Filter>Source Files\noiseLab</Filter>
+    </ClCompile>
+    <ClCompile Include="scene_hdr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -173,34 +185,46 @@
     <None Include="shader\solid.vert">
       <Filter>shaders\shadowsLab8</Filter>
     </None>
+    <None Include="shader\wood_grain.vert">
+      <Filter>shaders\noiseLab</Filter>
+    </None>
     <None Include="shader\cloud_effect.frag">
-      <Filter>shaders</Filter>
+      <Filter>shaders\noiseLab</Filter>
     </None>
     <None Include="shader\cloud_effect.vert">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\wood_grain.frag">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\wood_grain.vert">
-      <Filter>shaders</Filter>
+      <Filter>shaders\noiseLab</Filter>
     </None>
     <None Include="shader\disintegration.frag">
-      <Filter>shaders</Filter>
+      <Filter>shaders\noiseLab</Filter>
     </None>
     <None Include="shader\disintegration.vert">
-      <Filter>shaders</Filter>
+      <Filter>shaders\noiseLab</Filter>
     </None>
     <None Include="shader\night_vision.frag">
-      <Filter>shaders</Filter>
+      <Filter>shaders\noiseLab</Filter>
     </None>
     <None Include="shader\night_vision.vert">
-      <Filter>shaders</Filter>
+      <Filter>shaders\noiseLab</Filter>
     </None>
     <None Include="shader\paint_spatter.frag">
-      <Filter>shaders</Filter>
+      <Filter>shaders\noiseLab</Filter>
     </None>
     <None Include="shader\paint_spatter.vert">
+      <Filter>shaders\noiseLab</Filter>
+    </None>
+    <None Include="shader\wood_grain.frag">
+      <Filter>shaders\noiseLab</Filter>
+    </None>
+    <None Include="shader\hdr.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\hdr.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\lighting.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\lighting.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
@@ -222,9 +246,6 @@
     </ClInclude>
     <ClInclude Include="helper\glslprogram.h">
       <Filter>helper</Filter>
-    </ClInclude>
-    <ClInclude Include="scenebasic_uniform.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="helper\torus.h">
       <Filter>helper</Filter>
@@ -292,22 +313,28 @@
     <ClInclude Include="scene_soft.h">
       <Filter>Header Files\shadowsLab8</Filter>
     </ClInclude>
-    <ClInclude Include="scene_cloud.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="helper\noisetex.h">
       <Filter>helper</Filter>
     </ClInclude>
-    <ClInclude Include="woodgrain_scene.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="scene_cloud.h">
+      <Filter>Header Files\noiseLab</Filter>
     </ClInclude>
     <ClInclude Include="scene_disintegration.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\noiseLab</Filter>
     </ClInclude>
     <ClInclude Include="scene_night.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\noiseLab</Filter>
     </ClInclude>
     <ClInclude Include="scene_paint.h">
+      <Filter>Header Files\noiseLab</Filter>
+    </ClInclude>
+    <ClInclude Include="scenebasic_uniform.h">
+      <Filter>Header Files\noiseLab</Filter>
+    </ClInclude>
+    <ClInclude Include="woodgrain_scene.h">
+      <Filter>Header Files\noiseLab</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_hdr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
