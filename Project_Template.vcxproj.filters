@@ -132,6 +132,9 @@
     <ClCompile Include="scene_hdr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="scene_pbr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag">
@@ -227,6 +230,8 @@
     <None Include="shader\lighting.vert">
       <Filter>shaders</Filter>
     </None>
+    <None Include="shader\pbr.frag" />
+    <None Include="shader\pbr.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="helper\scene.h">
@@ -336,6 +341,12 @@
     </ClInclude>
     <ClInclude Include="scene_hdr.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_pbr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

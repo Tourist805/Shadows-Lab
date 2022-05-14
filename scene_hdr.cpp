@@ -14,8 +14,10 @@ using glm::mat4;
 Scene_Hdr::Scene_Hdr() : angle(0.0f), tPrev(0.0f),
                          bloomBufWidth(0), bloomBufHeight(0),
                          plane(20.0f, 10.0f, 1, 1),
-                        teapot(14, glm::mat4(1.0)), sphere(2.0f, 50, 50)
-{}
+                        teapot(14, glm::mat4(1.0)), sphere(2.0f, 50, 50), cube(4.0f)
+{
+
+}
 
 void Scene_Hdr::initScene() 
 {
@@ -185,6 +187,33 @@ void Scene_Hdr::setupFBO() {
 
 void Scene_Hdr::update(float t)
 {
+    //mat4 projection = glm::perspective(glm::radians(camera.Zoom), (GLfloat)width / (GLfloat)height, 0.1f, 100.0f);
+    //mat4 view = camera.GetViewMatrix();
+
+    float deltaT = t - tPrev;
+    if (tPrev == 0.0f)
+        deltaT = 0.0f;
+
+    tPrev = t;
+
+    angle += 30.0f * deltaT;
+    if (angle > glm::two_pi<float>()) angle -= glm::two_pi<float>();
+}
+
+void Scene_Hdr::processInput()
+{
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    {
+        std::cout << "W pressed" << endl;
+        camera.ProcessKeyboard(FORWARD, deltaTime);
+    }
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        camera.ProcessKeyboard(BACKWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        camera.ProcessKeyboard(LEFT, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        camera.ProcessKeyboard(RIGHT, deltaTime);
+
 }
 
 void Scene_Hdr::render()
@@ -344,18 +373,18 @@ void Scene_Hdr::drawScene()
     prog.setUniform("Lights[1].L", intense);
     prog.setUniform("Lights[2].L", intense);
 
-    vec4 lightPos = vec4(0.0f, 4.0f, 2.5f, 1.0f);
-    lightPos.x = -7.0f;
+    vec4 lightPos = vec4(0.0, 0.0f, 1.0f, 0.0f);
+    //lightPos.x = -7.0f;
     prog.setUniform("Lights[0].Position", view * lightPos);
-    lightPos.x = 0.0f;
+    lightPos = vec4(0.0, 0.0f, 1.0f, 0.0f);
     prog.setUniform("Lights[1].Position", view * lightPos);
-    lightPos.x = 7.0f;
+    lightPos = vec4(0.0f, 0.0f, 1.0f, 0.0f);
     prog.setUniform("Lights[2].Position", view * lightPos);
 
-    prog.setUniform("Material.Kd", 0.9f, 0.3f, 0.2f);
+    prog.setUniform("Material.Kd", 0.7f, 0.5f, 0.6f);
     prog.setUniform("Material.Ks", 1.0f, 1.0f, 1.0f);
     prog.setUniform("Material.Ka", 0.2f, 0.2f, 0.2f);
-    prog.setUniform("Material.Shininess", 25.0f);
+    prog.setUniform("Material.Shininess", 125.0f);
 
     // The backdrop plane
     model = glm::rotate(mat4(1.0f), glm::radians(90.0f), vec3(1.0f, 0.0f, 0.0f));
@@ -367,21 +396,27 @@ void Scene_Hdr::drawScene()
     setMatrices();
     plane.render();
 
-    // Top plane
-    model = glm::translate(mat4(1.0f), vec3(0.0f, 5.0f, 0.0f));
-    model = glm::rotate(model, glm::radians(180.0f), vec3(1.0f, 0.0f, 0.0f));
-    setMatrices();
-    plane.render();
-
-    // Sphere
-    prog.setUniform("Material.Kd", vec3(0.4f, 0.9f, 0.4f));
+    // Cube
+    prog.setUniform("Material.Kd", vec3(0.2f, 0.7f, 0.9f));
     model = glm::translate(mat4(1.0f), vec3(-3.0f, -3.0f, 2.0f));
     setMatrices();
-    sphere.render();
+    cube.render();
+
+    // Top plane
+    /*model = glm::translate(mat4(1.0f), vec3(5.0f, 5.0f, 0.0f));
+    model = glm::rotate(model, glm::radians(-100.0f), vec3(1.0f, 0.0f, 0.0f));
+    setMatrices();
+    plane.render();*/
+
+    // Sphere
+    /*prog.setUniform("Material.Kd", vec3(0.4f, 0.9f, 0.4f));
+    model = glm::translate(mat4(1.0f), vec3(-3.0f, -3.0f, 2.0f));
+    setMatrices();
+    sphere.render();*/
 
     // Teapot
     prog.setUniform("Material.Kd", vec3(0.4f, 0.4f, 0.9f));
-    model = glm::translate(mat4(1.0f), vec3(4.0f, -5.0f, 1.5f));
+    model = glm::translate(mat4(1.0f), vec3(3.0f, -5.0f, 6.0f));
     model = glm::rotate(model, glm::radians(-90.0f), vec3(1.0f, 0.0f, 0.0f));
     setMatrices();
     teapot.render();

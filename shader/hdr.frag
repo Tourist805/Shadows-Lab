@@ -30,8 +30,6 @@ uniform struct MaterialInfo {
 uniform float PixOffset[10] = float[](0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0);
 uniform float Weight[10];
 
-// XYZ/RGB conversion matrices from:
-// http://www.brucelindbloom.com/index.html?Eqn_RGB_XYZ_Matrix.html
 
 uniform mat3 rgb2xyz = mat3( 
   0.4124564, 0.2126729, 0.0193339,

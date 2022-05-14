@@ -8,6 +8,7 @@
 //#include "scene_disintegration.h"
 //#include "scene_paint.h"
 //#include "scene_night.h"
+//#include "scene_pbr.h"
 #include "scene_hdr.h"
 
 
@@ -24,6 +25,7 @@ int main(int argc, char* argv[])
 	//scene = std::unique_ptr<Scene>(new Scene_Disintegration());
 	//scene = std::unique_ptr<Scene>(new Scene_Paint());
 	//scene = std::unique_ptr<Scene>(new Scene_Night());
+	//scene = std::unique_ptr<Scene>(new Scene_Pbr());
 	scene = std::unique_ptr<Scene>(new Scene_Hdr());
 	return runner.run(*scene);
 }

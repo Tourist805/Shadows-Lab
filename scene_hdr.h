@@ -7,6 +7,8 @@
 #include "helper/plane.h"
 #include "helper/teapot.h"
 #include "helper/sphere.h"
+#include "camera.h"
+#include <GLFW/glfw3.h>
 
 #include <glm/glm.hpp>
 class Scene_Hdr : public Scene
@@ -14,12 +16,23 @@ class Scene_Hdr : public Scene
 private:
     GLSLProgram prog;
 
+    GLFWwindow* window;
     GLuint fsQuad;
     GLuint hdrFbo, blurFbo;
     GLuint hdrTex, tex1, tex2;
     GLuint linearSampler, nearestSampler;
+    
+    // Camera
+    float deltaTime = 0.0f;
+    Camera camera;
+    float lastX = (float)width / 2.0;
+    float lastY = (float)height / 2.0;
+    bool firstMouse = true;
+
+    void processInput();
 
     Plane plane;
+    Cube cube;
     Teapot teapot;
     Sphere sphere;
 
