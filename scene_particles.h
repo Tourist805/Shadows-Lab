@@ -17,7 +17,7 @@ private:
     float time, deltaT, speed, angle;
     GLuint particlesVao;
     GLuint bhVao, bhBuf;  // black hole VAO and buffer
-    glm::vec4 bh1, bh2;
+    glm::vec4 bh1, bh2, bh3;
 
     void compile();
     void initBuffers();

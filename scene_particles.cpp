@@ -15,7 +15,7 @@ using glm::vec3;
 Scene_Particles::Scene_Particles() :
     nParticles(100, 100, 100),
     time(0.0f), deltaT(0.0f), speed(35.0f), angle(0.0f),
-    bh1(5, 0, 0, 1), bh2(-5, 0, 0, 1)
+    bh1(5, 0, 0, 1), bh2(-5, 0, 0, 1), bh3(-2.5, 0, 0, 1)
 {
     totalParticles = nParticles.x * nParticles.y * nParticles.z;
 }
@@ -89,7 +89,7 @@ void Scene_Particles::initBuffers()
     // Set up a buffer and a VAO for drawing the attractors (the "black holes")
     glGenBuffers(1, &bhBuf);
     glBindBuffer(GL_ARRAY_BUFFER, bhBuf);
-    GLfloat data[] = { bh1.x, bh1.y, bh1.z, bh1.w, bh2.x, bh2.y, bh2.z, bh2.w };
+    GLfloat data[] = { bh1.x, bh1.y, bh1.z, bh1.w, bh2.x, bh2.y, bh2.z, bh2.w, bh3.x, bh3.y, bh3.z, bh3.w };
     glBufferData(GL_ARRAY_BUFFER, 8 * sizeof(GLfloat), data, GL_DYNAMIC_DRAW);
 
     glGenVertexArrays(1, &bhVao);
@@ -123,11 +123,13 @@ void Scene_Particles::render()
     glm::mat4 rot = glm::rotate(glm::mat4(1.0f), glm::radians(angle), glm::vec3(0, 0, 1));
     glm::vec3 att1 = glm::vec3(rot * bh1);
     glm::vec3 att2 = glm::vec3(rot * bh2);
+    glm::vec3 att3 = glm::vec3(rot * bh3);
 
     // Execute the compute shader
     computeProg.use();
     computeProg.setUniform("BlackHolePos1", att1);
     computeProg.setUniform("BlackHolePos2", att2);
+    computeProg.setUniform("BlackHolePos3", att3);
     glDispatchCompute(totalParticles / 1000, 1, 1);
     glMemoryBarrier(GL_SHADER_STORAGE_BARRIER_BIT);
 
@@ -147,7 +149,7 @@ void Scene_Particles::render()
 
     // Draw the attractors
     glPointSize(5.0f);
-    GLfloat data[] = { att1.x, att1.y, att1.z, 1.0f, att2.x, att2.y, att2.z, 1.0f };
+    GLfloat data[] = { att1.x, att1.y, att1.z, 1.0f, att2.x, att2.y, att2.z, att3.x, att3.y, att3.z, 1.0f };
     glBindBuffer(GL_ARRAY_BUFFER, bhBuf);
     glBufferSubData(GL_ARRAY_BUFFER, 0, 8 * sizeof(GLfloat), data);
     renderProg.setUniform("Color", glm::vec4(1, 1, 0, 1.0f));
