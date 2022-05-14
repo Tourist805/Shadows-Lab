@@ -9,7 +9,8 @@
 //#include "scene_paint.h"
 //#include "scene_night.h"
 //#include "scene_pbr.h"
-#include "scene_hdr.h"
+//#include "scene_hdr.h"
+#include "scene_particles.h"
 
 
 int main(int argc, char* argv[])
@@ -26,6 +27,7 @@ int main(int argc, char* argv[])
 	//scene = std::unique_ptr<Scene>(new Scene_Paint());
 	//scene = std::unique_ptr<Scene>(new Scene_Night());
 	//scene = std::unique_ptr<Scene>(new Scene_Pbr());
-	scene = std::unique_ptr<Scene>(new Scene_Hdr());
+	//scene = std::unique_ptr<Scene>(new Scene_Hdr());
+	scene = std::unique_ptr<Scene>(new Scene_Particles());
 	return runner.run(*scene);
 }

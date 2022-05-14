@@ -29,6 +29,7 @@ namespace GLSLShaderInfo {
 		{".frag", GLSLShader::FRAGMENT},
 		{"_frag.glsl", GLSLShader::FRAGMENT},
 		{".frag.glsl", GLSLShader::FRAGMENT},
+        {".comp", GLSLShader::COMPUTE},
 		{".cs",   GLSLShader::COMPUTE},
 		{ ".cs.glsl",   GLSLShader::COMPUTE }
 	};
