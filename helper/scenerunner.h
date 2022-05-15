@@ -10,10 +10,12 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include "InputController.h"
 
 class SceneRunner {
 private:
     GLFWwindow * window;
+    InputController controller;
     int fbw, fbh;
 	bool debug;           // Set true to enable debug messages
 
@@ -69,6 +71,11 @@ public:
 #endif
     }
 
+    int getCurrentSceneIndex()
+    {
+        return controller.getCurrentScene();
+    }
+
     int run(Scene & scene) {
         scene.setDimensions(fbw, fbh);
         scene.initScene();
@@ -120,6 +127,8 @@ private:
         while( ! glfwWindowShouldClose(window) && !glfwGetKey(window, GLFW_KEY_ESCAPE) ) {
             GLUtils::checkForOpenGLError(__FILE__,__LINE__);
 			
+            //Camera::getCamera().processMovementInput(window);
+            InputController::getController().processInput(window);
             scene.update(float(glfwGetTime()));
             scene.render();
             glfwSwapBuffers(window);

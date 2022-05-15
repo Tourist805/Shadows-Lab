@@ -141,6 +141,12 @@
     <ClCompile Include="scene_transparency.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>helper</Filter>
+    </ClCompile>
+    <ClCompile Include="InputController.cpp">
+      <Filter>helper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag">
@@ -378,6 +384,9 @@
     </ClInclude>
     <ClInclude Include="scene_transparency.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputController.h">
+      <Filter>helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

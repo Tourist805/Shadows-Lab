@@ -5,6 +5,7 @@
 #include "helper/glslprogram.h"
 #include "helper/cube.h"
 #include "helper/sphere.h"
+#include "camera.h"
 
 #include <glm/glm.hpp>
 
@@ -28,6 +29,7 @@ private:
 	GLuint buffers[2], fsQuad, headPtrTex, pass1Index, pass2Index, clearBuffer;
 
 	Cube cube;
+	Camera camera;
 	Sphere sphere;
 
 	float angle, tPrev, rotSpeed;

@@ -9,9 +9,10 @@
 //#include "scene_paint.h"
 //#include "scene_night.h"
 //#include "scene_pbr.h"
-//#include "scene_hdr.h"
-//#include "scene_particles.h"
+#include "scene_hdr.h"
+#include "scene_particles.h"
 #include "scene_transparency.h"
+#include "InputController.h"
 
 
 int main(int argc, char* argv[])
@@ -30,6 +31,26 @@ int main(int argc, char* argv[])
 	//scene = std::unique_ptr<Scene>(new Scene_Pbr());
 	//scene = std::unique_ptr<Scene>(new Scene_Hdr());
 	//scene = std::unique_ptr<Scene>(new Scene_Particles());
-	scene = std::unique_ptr<Scene>(new Scene_Transparency());
+	while (true)
+	{
+		if (runner.getCurrentSceneIndex() == 2)
+		{
+			scene = std::unique_ptr<Scene>(new Scene_Hdr());
+			runner.run(*scene);
+		}
+		if (runner.getCurrentSceneIndex() == 1)
+		{
+			scene = std::unique_ptr<Scene>(new Scene_Particles());
+			runner.run(*scene);
+		}
+		if (runner.getCurrentSceneIndex() == 0)
+		{
+			scene = std::unique_ptr<Scene>(new Scene_Transparency());
+			runner.run(*scene);
+		}
+	}
+	
+	
+	
 	return runner.run(*scene);
 }

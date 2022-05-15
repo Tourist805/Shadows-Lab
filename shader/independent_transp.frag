@@ -7,11 +7,19 @@ layout (early_fragment_tests) in;
 in vec3 Position;
 in vec3 Normal;
 
-uniform vec4 LightPosition;
-uniform vec3 LightIntensity;
+uniform struct LightInfo
+{
+    vec4 position;
+    vec3 L;
+} Light;
 
-uniform vec4 Kd;            // Diffuse reflectivity
-uniform vec4 Ka;            // Ambient reflectivity
+uniform struct MaterialInfo
+{
+    vec4 Kd;
+    vec4 Ka;
+    vec4 Ks;
+    float Shininess;
+} Material;
 
 struct NodeType {
   vec4 color;
@@ -33,11 +41,20 @@ subroutine uniform RenderPassType RenderPass;
 
 vec3 diffuse( )
 {
-  vec3 s = normalize( LightPosition.xyz - Position );
-  vec3 n = normalize(Normal);
-  return
-    LightIntensity * ( Ka.rgb +
-        Kd.rgb * max( dot(s, n), 0.0 ) );
+    vec3 ambient = Light.L * Material.Ka.xyz;
+    vec3 s = normalize( Light.position.xyz - Position );
+    vec3 n = normalize(Normal);
+
+    float sDotN = max( dot(s,n), 0.0 );
+    vec3 diffuse = Material.Kd.xyz * sDotN;
+    vec3 spec = vec3(0.0);
+    if( sDotN > 0.0 ) {
+        vec3 v = normalize(-Position.xyz);
+        vec3 h = normalize( v + s );
+        spec = Material.Ks.xyz *
+            pow( max( dot(h,n), 0.0 ), Material.Shininess );
+    }
+    return ambient + Light.L * (diffuse + spec);
 }
 
   subroutine(RenderPassType)
@@ -61,7 +78,7 @@ void pass1()
     // Here we set the color and depth of this new node to the color
     // and depth of the fragment.  The next pointer, points to the
     // previous head of the list.
-    nodes[nodeIdx].color = vec4(diffuse(), Kd.a);
+    nodes[nodeIdx].color = vec4(diffuse(), Material.Kd.a);
     nodes[nodeIdx].depth = gl_FragCoord.z;
     nodes[nodeIdx].next = prevHead;
   }

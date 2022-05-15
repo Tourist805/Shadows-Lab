@@ -187,32 +187,33 @@ void Scene_Hdr::setupFBO() {
 
 void Scene_Hdr::update(float t)
 {
+    view = Camera::getCamera().getView();
     //mat4 projection = glm::perspective(glm::radians(camera.Zoom), (GLfloat)width / (GLfloat)height, 0.1f, 100.0f);
     //mat4 view = camera.GetViewMatrix();
 
-    float deltaT = t - tPrev;
-    if (tPrev == 0.0f)
-        deltaT = 0.0f;
+    //float deltaT = t - tPrev;
+    //if (tPrev == 0.0f)
+    //    deltaT = 0.0f;
 
-    tPrev = t;
+    //tPrev = t;
 
-    angle += 30.0f * deltaT;
-    if (angle > glm::two_pi<float>()) angle -= glm::two_pi<float>();
+    //angle += 30.0f * deltaT;
+    //if (angle > glm::two_pi<float>()) angle -= glm::two_pi<float>();
 }
 
 void Scene_Hdr::processInput()
 {
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-    {
-        std::cout << "W pressed" << endl;
-        camera.ProcessKeyboard(FORWARD, deltaTime);
-    }
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.ProcessKeyboard(BACKWARD, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.ProcessKeyboard(LEFT, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.ProcessKeyboard(RIGHT, deltaTime);
+    //if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    //{
+    //    std::cout << "W pressed" << endl;
+    //    camera.ProcessKeyboard(FORWARD, deltaTime);
+    //}
+    //if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+    //    camera.ProcessKeyboard(BACKWARD, deltaTime);
+    //if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    //    camera.ProcessKeyboard(LEFT, deltaTime);
+    //if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    //    camera.ProcessKeyboard(RIGHT, deltaTime);
 
 }
 
@@ -409,16 +410,16 @@ void Scene_Hdr::drawScene()
     plane.render();*/
 
     // Torus
+    //prog.setUniform("Material.Kd", vec3(0.4f, 0.9f, 0.4f));
+    //model = glm::translate(mat4(1.0f), vec3(-3.0f, -3.0f, 2.0f));
+    //setMatrices();
+    //torus.render();
+
+    // Sphere
     prog.setUniform("Material.Kd", vec3(0.4f, 0.9f, 0.4f));
     model = glm::translate(mat4(1.0f), vec3(-3.0f, -3.0f, 2.0f));
     setMatrices();
-    torus.render();
-
-    // Sphere
-    /*prog.setUniform("Material.Kd", vec3(0.4f, 0.9f, 0.4f));
-    model = glm::translate(mat4(1.0f), vec3(-3.0f, -3.0f, 2.0f));
-    setMatrices();
-    sphere.render();*/
+    sphere.render();
 
     // Teapot
     //prog.setUniform("Material.Kd", vec3(0.4f, 0.4f, 0.9f));

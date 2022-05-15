@@ -58,13 +58,14 @@ void Scene_Transparency::initScene()
 
 void Scene_Transparency::update(float t)
 {
-    float deltaT = t - tPrev;
-    if (tPrev == 0.0f) deltaT = 0.0f;
-    tPrev = t;
-    if (animating()) {
-        angle += deltaT * rotSpeed;
-        if (angle > 360.0) angle -= 360.0f;
-    }
+    view = Camera::getCamera().getView();
+    //float deltaT = t - tPrev;
+    //if (tPrev == 0.0f) deltaT = 0.0f;
+    //tPrev = t;
+    //if (animating()) {
+    //    angle += deltaT * rotSpeed;
+    //    if (angle > 360.0) angle -= 360.0f;
+    //}
 }
 
 void Scene_Transparency::render()
@@ -154,10 +155,13 @@ void Scene_Transparency::compile()
 }
 
 void Scene_Transparency::drawScene() {
-    prog.setUniform("LightPosition", vec4(0, 0, 0, 1));
-    prog.setUniform("LightIntensity", vec3(0.9f));
+    prog.setUniform("Light.position", vec4(0, 0, 0, 1));
+    prog.setUniform("Light.L", vec3(0.9f));
 
-    prog.setUniform("Kd", vec4(0.2f, 0.2f, 0.9f, 0.55f));
+    prog.setUniform("Material.Kd", vec4(0.2f, 0.2f, 0.9f, 0.55f));
+    prog.setUniform("Material.Ka", vec4(0.2f, 0.2f, 0.2f, 0.0f));
+    prog.setUniform("Material.Ks", vec4(0.2f, 0.2f, 0.2f, 0.0f));
+    prog.setUniform("Material.Shininess", 100.0f);
     float size = 0.45f;
     for (int i = 0; i <= 6; i++)
         for (int j = 0; j <= 6; j++)
@@ -170,48 +174,49 @@ void Scene_Transparency::drawScene() {
                 }
             }
 
-    prog.setUniform("Kd", vec4(0.9f, 0.2f, 0.2f, 0.4f));
+    prog.setUniform("Material.Kd", vec4(0.9f, 0.2f, 0.2f, 0.4f));
     size = 2.0f;
     float pos = 1.75f;
+
     model = glm::translate(mat4(1.0f), vec3(-pos, -pos, pos));
     model = glm::scale(model, vec3(size));
     setMatrices();
+    sphere.render();
 
-    cube.render();
     model = glm::translate(mat4(1.0f), vec3(-pos, -pos, -pos));
     model = glm::scale(model, vec3(size));
     setMatrices();
+    sphere.render();
 
-    cube.render();
     model = glm::translate(mat4(1.0f), vec3(-pos, pos, pos));
     model = glm::scale(model, vec3(size));
     setMatrices();
-    cube.render();
+    sphere.render();
 
     model = glm::translate(mat4(1.0f), vec3(-pos, pos, -pos));
     model = glm::scale(model, vec3(size));
     setMatrices();
-    cube.render();
+    sphere.render();
 
     model = glm::translate(mat4(1.0f), vec3(pos, pos, pos));
     model = glm::scale(model, vec3(size));
     setMatrices();
-    cube.render();
+    sphere.render();
 
     model = glm::translate(mat4(1.0f), vec3(pos, pos, -pos));
     model = glm::scale(model, vec3(size));
     setMatrices();
-    cube.render();
+    sphere.render();
 
     model = glm::translate(mat4(1.0f), vec3(pos, -pos, pos));
     model = glm::scale(model, vec3(size));
     setMatrices();
-    cube.render();
+    sphere.render();
 
     model = glm::translate(mat4(1.0f), vec3(pos, -pos, -pos));
     model = glm::scale(model, vec3(size));
     setMatrices();
-    cube.render();
+    sphere.render();
 }
 
 void Scene_Transparency::initShaderStorage()
