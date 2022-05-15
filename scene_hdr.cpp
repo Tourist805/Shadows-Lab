@@ -14,7 +14,7 @@ using glm::mat4;
 Scene_Hdr::Scene_Hdr() : angle(0.0f), tPrev(0.0f),
                          bloomBufWidth(0), bloomBufHeight(0),
                          plane(20.0f, 10.0f, 1, 1),
-                        teapot(14, glm::mat4(1.0)), sphere(2.0f, 50, 50), cube(4.0f)
+                        teapot(14, glm::mat4(1.0)), sphere(2.0f, 50, 50), cube(4.0f), torus(5.0f, 2.0f, 20, 2)
 {
 
 }
@@ -408,6 +408,12 @@ void Scene_Hdr::drawScene()
     setMatrices();
     plane.render();*/
 
+    // Torus
+    prog.setUniform("Material.Kd", vec3(0.4f, 0.9f, 0.4f));
+    model = glm::translate(mat4(1.0f), vec3(-3.0f, -3.0f, 2.0f));
+    setMatrices();
+    torus.render();
+
     // Sphere
     /*prog.setUniform("Material.Kd", vec3(0.4f, 0.9f, 0.4f));
     model = glm::translate(mat4(1.0f), vec3(-3.0f, -3.0f, 2.0f));
@@ -415,9 +421,9 @@ void Scene_Hdr::drawScene()
     sphere.render();*/
 
     // Teapot
-    prog.setUniform("Material.Kd", vec3(0.4f, 0.4f, 0.9f));
-    model = glm::translate(mat4(1.0f), vec3(3.0f, -5.0f, 6.0f));
-    model = glm::rotate(model, glm::radians(-90.0f), vec3(1.0f, 0.0f, 0.0f));
-    setMatrices();
-    teapot.render();
+    //prog.setUniform("Material.Kd", vec3(0.4f, 0.4f, 0.9f));
+    //model = glm::translate(mat4(1.0f), vec3(3.0f, -5.0f, 6.0f));
+    //model = glm::rotate(model, glm::radians(-90.0f), vec3(1.0f, 0.0f, 0.0f));
+    //setMatrices();
+    //teapot.render();
 }

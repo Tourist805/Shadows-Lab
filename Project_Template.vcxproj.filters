@@ -138,6 +138,9 @@
     <ClCompile Include="scene_particles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="scene_transparency.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag">
@@ -246,6 +249,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shader\particles.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\independent_transp.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\independent_transp.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
@@ -365,6 +374,9 @@
       <Filter>helper</Filter>
     </ClInclude>
     <ClInclude Include="scene_particles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_transparency.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

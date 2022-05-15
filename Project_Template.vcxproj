@@ -175,6 +175,7 @@
     <ClCompile Include="scene_shadowmap.cpp" />
     <ClCompile Include="scene_shadowvolume.cpp" />
     <ClCompile Include="scene_soft.cpp" />
+    <ClCompile Include="scene_transparency.cpp" />
     <ClCompile Include="woodgrain_scene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +187,8 @@
     <None Include="shader\disintegration.vert" />
     <None Include="shader\hdr.frag" />
     <None Include="shader\hdr.vert" />
+    <None Include="shader\independent_transp.frag" />
+    <None Include="shader\independent_transp.vert" />
     <None Include="shader\lighting.frag" />
     <None Include="shader\lighting.vert" />
     <None Include="shader\night_vision.frag" />
@@ -254,6 +257,7 @@
     <ClInclude Include="scene_shadowmap.h" />
     <ClInclude Include="scene_shadowvolume.h" />
     <ClInclude Include="scene_soft.h" />
+    <ClInclude Include="scene_transparency.h" />
     <ClInclude Include="woodgrain_scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

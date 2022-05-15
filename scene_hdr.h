@@ -7,6 +7,8 @@
 #include "helper/plane.h"
 #include "helper/teapot.h"
 #include "helper/sphere.h"
+#include "helper/objmesh.h"
+#include "helper/torus.h"
 #include "camera.h"
 #include <GLFW/glfw3.h>
 
@@ -21,6 +23,8 @@ private:
     GLuint hdrFbo, blurFbo;
     GLuint hdrTex, tex1, tex2;
     GLuint linearSampler, nearestSampler;
+    Torus torus;
+    //std::unique_ptr<ObjMesh> spot;
     
     // Camera
     float deltaTime = 0.0f;
