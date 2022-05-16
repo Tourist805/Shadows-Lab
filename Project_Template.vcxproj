@@ -202,6 +202,7 @@
     <None Include="shader\particles.frag" />
     <None Include="shader\particles.vert" />
     <None Include="shader\pbr.frag" />
+    <None Include="shader\pbr.geom" />
     <None Include="shader\pbr.vert" />
     <None Include="shader\pcf.frag" />
     <None Include="shader\pcf.vert" />

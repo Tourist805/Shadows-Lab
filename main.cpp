@@ -12,7 +12,7 @@
 //#include "scene_hdr.h"
 //#include "scene_particles.h"
 //#include "scene_transparency.h"
-#include "scene_rustMetal.h"
+//#include "scene_rustMetal.h"
 #include "InputController.h"
 
 
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 	//scene = std::unique_ptr<Scene>(new Scene_Particles());
 	/*while (true)
 	{
-		if (runner.getCurrentSceneIndex() == 2)
+		if (runner.getCurrentSceneIndex() == 0)
 		{
 			scene = std::unique_ptr<Scene>(new Scene_Hdr());
 			runner.run(*scene);
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
 			scene = std::unique_ptr<Scene>(new Scene_Particles());
 			runner.run(*scene);
 		}
-		if (runner.getCurrentSceneIndex() == 0)
+		if (runner.getCurrentSceneIndex() == 2)
 		{
 			scene = std::unique_ptr<Scene>(new Scene_Transparency());
 			runner.run(*scene);

@@ -8,6 +8,7 @@
 #include "helper/torus.h"
 #include "helper/teapot.h"
 #include "helper/objmesh.h"
+#include "helper/noisetex.h"
 
 #include <glm/glm.hpp>
 class Scene_Pbr : public Scene

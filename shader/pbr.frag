@@ -4,6 +4,7 @@ const float PI = 3.14159265358979323846;
 
 in vec3 Position;
 in vec3 Normal;
+in vec2 TexCoord;
 
 uniform struct LightInfo
 {
@@ -19,6 +20,14 @@ uniform struct MaterialInfo
 } Material;
 
 layout(location = 0) out vec4 FragColor;
+
+const int levels = 3;
+const float scaleFactor = 1.0 / levels;
+
+uniform float Threshold = 0.58;
+uniform sampler2D NoiseTex;
+
+uniform vec4 MaterialColour;
 
 float ggxDistribution(float nDotH)
 {
@@ -56,18 +65,18 @@ vec3 microfacetModel(int lightIdx, vec3 position, vec3 n)
 	vec3 l = vec3(0.0);
 	vec3 lightI = Light[lightIdx].L;
 
-	if(Light[lightIdx].Position.w == 0.0)
-	{
-		// Directional Light
-		l = normalize(Light[lightIdx].Position.xyz);
-	}
-	else
-	{
-		l = Light[lightIdx].Position.xyz - position;
+//	if(Light[lightIdx].Position.w == 0.0)
+//	{
+//		// Directional Light
+//		l = normalize(Light[lightIdx].Position.xyz);
+//	}
+//	else
+//	{
+		l = Light[lightIdx].Position.xyz - Position;
 		float dist = length(l);
 		l = normalize(l);
 		lightI /= (dist * dist);
-	}
+	//}
 
 	vec3 v = normalize(-position);
 	vec3 h = normalize(v + l);
@@ -77,7 +86,7 @@ vec3 microfacetModel(int lightIdx, vec3 position, vec3 n)
 	float nDotV = dot(n, v);
 	vec3 specBRDF = 0.25 * ggxDistribution(nDotH) * schlickFresnel(lDotH) * geomSmith(nDotL) * geomSmith(nDotV);
 
-	return (diffuseBRDF + PI * specBRDF) * lightI * nDotL;
+	return (diffuseBRDF * scaleFactor + PI * specBRDF) * lightI * nDotL;
 }
 
 void main()
@@ -93,5 +102,12 @@ void main()
 	// Gamma
 	sum = pow(sum, vec3(1.0 / 2.2));
 
+//	float noise = texture(NoiseTex, TexCoord).a;
+//	float scale = floor(noise + (1 - Threshold));
+//
+//	vec3 rustColour = mix(MaterialColour.rgb, vec3(0.01), noise);
+
+	//FragColor = vec4(mix(sum, rustColour, scale), 1);
 	FragColor = vec4(sum, 1);
+	
 }
