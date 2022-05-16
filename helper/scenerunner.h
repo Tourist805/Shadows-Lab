@@ -128,7 +128,7 @@ private:
             GLUtils::checkForOpenGLError(__FILE__,__LINE__);
 			
             //Camera::getCamera().processMovementInput(window);
-            InputController::getController().processInput(window);
+            //InputController::getController().processInput(window);
             scene.update(float(glfwGetTime()));
             scene.render();
             glfwSwapBuffers(window);

@@ -9,6 +9,7 @@
 #include "helper/teapot.h"
 #include "helper/objmesh.h"
 #include "helper/noisetex.h"
+#include "GUIController.h"
 
 #include <glm/glm.hpp>
 class Scene_Pbr : public Scene
@@ -19,7 +20,7 @@ private:
 	Plane plane;
 	std::unique_ptr<ObjMesh> mesh;
 	Teapot teapot;
-
+	GUIController* UIcontroller;
 	float tPrev, lightAngle, lightRotationSpeed;
 	glm::vec4 lightPos;
 

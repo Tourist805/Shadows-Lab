@@ -120,6 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,6 +148,7 @@
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="GUIController.cpp" />
     <ClCompile Include="helper\cube.cpp" />
     <ClCompile Include="helper\frustum.cpp" />
     <ClCompile Include="helper\glslprogram.cpp" />
@@ -163,71 +165,40 @@
     <ClCompile Include="helper\texture.cpp" />
     <ClCompile Include="helper\torus.cpp" />
     <ClCompile Include="helper\trianglemesh.cpp" />
+    <ClCompile Include="imgui\imgui.cpp" />
+    <ClCompile Include="imgui\imgui_demo.cpp" />
+    <ClCompile Include="imgui\imgui_draw.cpp" />
+    <ClCompile Include="imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="imgui\imgui_tables.cpp" />
+    <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="InputController.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="scenebasic_uniform.cpp" />
-    <ClCompile Include="scene_cloud.cpp" />
-    <ClCompile Include="scene_disintegration.cpp" />
     <ClCompile Include="scene_hdr.cpp" />
-    <ClCompile Include="scene_night.cpp" />
-    <ClCompile Include="scene_paint.cpp" />
     <ClCompile Include="scene_particles.cpp" />
     <ClCompile Include="scene_pbr.cpp" />
-    <ClCompile Include="scene_pcf.cpp" />
     <ClCompile Include="scene_rustMetal.cpp" />
-    <ClCompile Include="scene_shadowmap.cpp" />
-    <ClCompile Include="scene_shadowvolume.cpp" />
-    <ClCompile Include="scene_soft.cpp" />
     <ClCompile Include="scene_transparency.cpp" />
-    <ClCompile Include="woodgrain_scene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\basic_uniform.frag" />
-    <None Include="shader\basic_uniform.vert" />
-    <None Include="shader\cloud_effect.frag" />
-    <None Include="shader\cloud_effect.vert" />
-    <None Include="shader\disintegration.frag" />
-    <None Include="shader\disintegration.vert" />
     <None Include="shader\hdr.frag" />
     <None Include="shader\hdr.vert" />
     <None Include="shader\independent_transp.frag" />
     <None Include="shader\independent_transp.vert" />
-    <None Include="shader\lighting.frag" />
-    <None Include="shader\lighting.vert" />
-    <None Include="shader\night_vision.frag" />
-    <None Include="shader\night_vision.vert" />
-    <None Include="shader\paint_spatter.frag" />
-    <None Include="shader\paint_spatter.vert" />
     <None Include="shader\particles.comp" />
     <None Include="shader\particles.frag" />
     <None Include="shader\particles.vert" />
     <None Include="shader\pbr.frag" />
     <None Include="shader\pbr.geom" />
     <None Include="shader\pbr.vert" />
-    <None Include="shader\pcf.frag" />
-    <None Include="shader\pcf.vert" />
     <None Include="shader\rust_metal.frag" />
     <None Include="shader\rust_metal.vert" />
-    <None Include="shader\shadow_map.frag" />
-    <None Include="shader\shadow_map.vert" />
-    <None Include="shader\shadow_volume.frag" />
-    <None Include="shader\shadow_volume.geom" />
-    <None Include="shader\shadow_volume.vert" />
-    <None Include="shader\shadow_volume_compute.frag" />
-    <None Include="shader\shadow_volume_compute.vert" />
-    <None Include="shader\shadow_volume_render.frag" />
-    <None Include="shader\shadow_volume_render.vert" />
     <None Include="shader\skybox.frag" />
     <None Include="shader\skybox.vert" />
-    <None Include="shader\soft_shadows.frag" />
-    <None Include="shader\soft_shadows.vert" />
-    <None Include="shader\solid.frag" />
-    <None Include="shader\solid.vert" />
-    <None Include="shader\wood_grain.frag" />
-    <None Include="shader\wood_grain.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
+    <ClInclude Include="GUIController.h" />
     <ClInclude Include="helper\aabb.h" />
     <ClInclude Include="helper\cube.h" />
     <ClInclude Include="helper\drawable.h" />
@@ -253,22 +224,20 @@
     <ClInclude Include="helper\torus.h" />
     <ClInclude Include="helper\trianglemesh.h" />
     <ClInclude Include="helper\utils.h" />
+    <ClInclude Include="imgui\imconfig.h" />
+    <ClInclude Include="imgui\imgui.h" />
+    <ClInclude Include="imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="imgui\imgui_internal.h" />
+    <ClInclude Include="imgui\imstb_rectpack.h" />
+    <ClInclude Include="imgui\imstb_textedit.h" />
+    <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="InputController.h" />
-    <ClInclude Include="scenebasic_uniform.h" />
-    <ClInclude Include="scene_cloud.h" />
-    <ClInclude Include="scene_disintegration.h" />
     <ClInclude Include="scene_hdr.h" />
-    <ClInclude Include="scene_night.h" />
-    <ClInclude Include="scene_paint.h" />
     <ClInclude Include="scene_particles.h" />
     <ClInclude Include="scene_pbr.h" />
-    <ClInclude Include="scene_pcf.h" />
     <ClInclude Include="scene_rustMetal.h" />
-    <ClInclude Include="scene_shadowmap.h" />
-    <ClInclude Include="scene_shadowvolume.h" />
-    <ClInclude Include="scene_soft.h" />
     <ClInclude Include="scene_transparency.h" />
-    <ClInclude Include="woodgrain_scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

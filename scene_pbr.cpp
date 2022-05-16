@@ -3,6 +3,7 @@
 #include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
 
+
 Scene_Pbr::Scene_Pbr() : plane(20, 20, 1, 1), teapot(5, glm::mat4(1.0f)), tPrev(0.0f), lightPos(5.0f, 5.0f, 5.0f, 1.0f) {
 	mesh = ObjMesh::load("../Shadows-Lab/media/tinker.obj");
 }
