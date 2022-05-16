@@ -147,6 +147,9 @@
     <ClCompile Include="InputController.cpp">
       <Filter>helper</Filter>
     </ClCompile>
+    <ClCompile Include="scene_rustMetal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic_uniform.frag">
@@ -261,6 +264,18 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shader\independent_transp.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\skybox.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\skybox.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\rust_metal.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\rust_metal.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
@@ -387,6 +402,9 @@
     </ClInclude>
     <ClInclude Include="InputController.h">
       <Filter>helper</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_rustMetal.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
