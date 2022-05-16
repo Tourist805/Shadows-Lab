@@ -8,6 +8,7 @@ GitHub: https://github.com/Tourist805/Shadows-Lab
 ## Software and Operational Systems
  - Windows 10
  - Microsoft Visual Studio 2019
+ - OpenGL 4.3
 
 ## First Scene - PBR techniques
 First scene uses PBR techniques, as well as spotlight to demonstate a playable demo. The inspriation came from the Star Wars Series intro [cutscene](https://www.youtube.com/watch?v=wLqCgRK_NMI).
