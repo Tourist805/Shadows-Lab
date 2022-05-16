@@ -2,6 +2,9 @@
 
 For this project, I have decided to create a couple of scenes implementing different computer graphics techniques.
 
+Developer walkthrough: https://youtu.be/i-zlYLIkYzI
+GitHub: https://github.com/Tourist805/Shadows-Lab
+
 ## Software and Operational Systems
  - Windows 10
  - Microsoft Visual Studio 2019
