@@ -34,7 +34,7 @@ float geomSmith(float dotProd)
 	return 1.0 / denom;
 }
 
-vec3 shlickFresnel(float lDotH)
+vec3 schlickFresnel(float lDotH)
 {
 	vec3 f0 = vec3(0.04);
 	if(Material.Metal)
@@ -75,7 +75,7 @@ vec3 microfacetModel(int lightIdx, vec3 position, vec3 n)
 	float lDotH = dot(l, h);
 	float nDotL = max(dot(n, l), 0.0);
 	float nDotV = dot(n, v);
-	vec3 specBRDF = 0.25 * ggxDistribution(nDotH) * shlickFresnel(lDotH) * geomSmith(nDotL) * geomSmith(nDotV);
+	vec3 specBRDF = 0.25 * ggxDistribution(nDotH) * schlickFresnel(lDotH) * geomSmith(nDotL) * geomSmith(nDotV);
 
 	return (diffuseBRDF + PI * specBRDF) * lightI * nDotL;
 }

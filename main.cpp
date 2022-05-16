@@ -8,7 +8,7 @@
 //#include "scene_disintegration.h"
 //#include "scene_paint.h"
 //#include "scene_night.h"
-//#include "scene_pbr.h"
+#include "scene_pbr.h"
 //#include "scene_hdr.h"
 //#include "scene_particles.h"
 //#include "scene_transparency.h"
@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 	//scene = std::unique_ptr<Scene>(new Scene_Disintegration());
 	//scene = std::unique_ptr<Scene>(new Scene_Paint());
 	//scene = std::unique_ptr<Scene>(new Scene_Night());
-	//scene = std::unique_ptr<Scene>(new Scene_Pbr());
+	scene = std::unique_ptr<Scene>(new Scene_Pbr());
 	//scene = std::unique_ptr<Scene>(new Scene_Hdr());
 	//scene = std::unique_ptr<Scene>(new Scene_Particles());
 	/*while (true)
@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
 			runner.run(*scene);
 		}
 	}*/
-	scene = std::unique_ptr<Scene>(new Scene_RustMetal());
+	//scene = std::unique_ptr<Scene>(new Scene_RustMetal());
 	
 	
 	return runner.run(*scene);

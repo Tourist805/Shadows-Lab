@@ -121,7 +121,7 @@ void Scene_Pbr::drawSpot(const glm::vec3& pos, float rough, int metal, const glm
 	model = glm::mat4(1.0f);
 	prog.setUniform("Material.Rough", rough);
 	prog.setUniform("Material.Metal", metal);
-	prog.setUniform("Material.Color", color);
+	prog.setUniform("Material.Colour", color);
 	model = glm::translate(model, pos);
 	model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
