@@ -23,16 +23,16 @@ void Scene_Pbr::initScene() {
 	lightAngle = 0.0f;
 	lightRotationSpeed = 1.5f;
 
-	prog.setUniform("Light[0].L", glm::vec3(80.0f * 0.4f, 80.0f * 0.9f, 80.0f * 1.0f));
+	prog.setUniform("Light[0].L", glm::vec3(100.0f * 0.4f, 100.0f * 0.9f, 100.0f * 1.0f));
 	prog.setUniform("Light[0].Position", view * lightPos);
 	prog.setUniform("EdgeWidth", 0.015f);
 	prog.setUniform("PctExtend", 0.25f);
 	prog.setUniform("LineColour", glm::vec4(0.05f, 0.0f, 0.05f, 1.0f));
 
-	//prog.setUniform("Light[1].L", glm::vec3(0.3f));
-	//prog.setUniform("Light[1].Position", glm::vec4(0, 0.15f, -1.0f, 0));
-	//prog.setUniform("Light[2].L", glm::vec3(45.0f));
-	//prog.setUniform("Light[2].Position", view * glm::vec4(-7, 3, 7, 1));
+	prog.setUniform("Light[1].L", glm::vec3(0.3f));
+	prog.setUniform("Light[1].Position", glm::vec4(0, 0.15f, -1.0f, 0));
+	prog.setUniform("Light[2].L", glm::vec3(5.0f));
+	prog.setUniform("Light[2].Position", view * glm::vec4(-7, 3, 7, 1));
 }
 
 void Scene_Pbr::update(float t) {
@@ -54,13 +54,7 @@ void Scene_Pbr::render()
 	prog.setUniform("Light[0].Position", view * lightPos);
 	prog.setUniform("MaterialColour", glm::vec4(0.7255f, 0.255f, 0.055f, 1.0f));
 
-	//GLuint noiseTex = NoiseTex::generate2DTex(16.0f);
-
-	//glActiveTexture(GL_TEXTURE0);
-	//glBindTexture(GL_TEXTURE_2D, noiseTex);
-
 	drawScene();
-	//prog.setUniform("NoiseTex", 0);
 }
 
 void Scene_Pbr::resize(int w, int h)
@@ -96,27 +90,9 @@ void Scene_Pbr::compile() {
 void Scene_Pbr::drawScene() {
 	drawFloor();
 
-	// Draw dielectric cows with varying roughness
-	//int numCows = 9;
-	//glm::vec3 cowBaseColor(0.1f, 0.33f, 0.17f);
-	//for (int i = 0; i < numCows; i++) {
-	//	float cowX = i * (10.0f / (numCows - 1)) - 5.0f;
-	//	float rough = (i + 1) * (1.0f / numCows);
-	//	drawSpot(glm::vec3(cowX, 0, 0), rough, 0, cowBaseColor);
-	//}
+	float metalRough = 0.25f;
+	drawSpot(glm::vec3(-0.2f, 0.0f, 0.0f), metalRough, 1, glm::vec3(0.542f, 0.497f, 0.449f));
 
-	// Draw metal cows
-	float metalRough = 0.43f;
-	// Gold
-	drawSpot(glm::vec3(-0.2f, 0.0f, 0.0f), metalRough, 1, glm::vec3(0.95f, 0.93f, 0.88f));
-	// Copper
-	//drawSpot(glm::vec3(-1.5f, 0.0f, 3.0f), metalRough, 1, glm::vec3(0.95f, 0.64f, 0.54f));
-	//// Aluminum
-	//drawSpot(glm::vec3(-0.0f, 0.0f, 3.0f), metalRough, 1, glm::vec3(0.91f, 0.92f, 0.92f));
-	//// Titanium
-	//drawSpot(glm::vec3(1.5f, 0.0f, 3.0f), metalRough, 1, glm::vec3(0.542f, 0.497f, 0.449f));
-	//// Silver
-	//drawSpot(glm::vec3(3.0f, 0.0f, 3.0f), metalRough, 1, glm::vec3(0.95f, 0.93f, 0.88f));
 
 }
 

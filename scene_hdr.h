@@ -10,13 +10,14 @@
 #include "helper/objmesh.h"
 #include "helper/torus.h"
 #include "camera.h"
+#include "helper/noisetex.h"
 #include <GLFW/glfw3.h>
 
 #include <glm/glm.hpp>
 class Scene_Hdr : public Scene
 {
 private:
-    GLSLProgram prog;
+    GLSLProgram prog, rustProg;
 
     GLFWwindow* window;
     GLuint fsQuad;
@@ -43,7 +44,7 @@ private:
     float angle, tPrev, rotSpeed;
     int bloomBufWidth, bloomBufHeight;
 
-    void setMatrices();
+    void setMatrices(GLSLProgram& p);
     void compile();
     void setupFBO();
     void pass1();

@@ -14,7 +14,7 @@ using glm::mat4;
 Scene_Hdr::Scene_Hdr() : angle(0.0f), tPrev(0.0f),
                          bloomBufWidth(0), bloomBufHeight(0),
                          plane(20.0f, 10.0f, 1, 1),
-                        teapot(14, glm::mat4(1.0)), sphere(2.0f, 50, 50), cube(4.0f), torus(5.0f, 2.0f, 20, 2)
+                        teapot(14, glm::mat4(1.0)), sphere(2.0f, 50, 50), cube(4.0f), torus(0.7f * 1.5f, 0.3f * 1.5f, 50, 50)
 {
 
 }
@@ -128,6 +128,13 @@ void Scene_Hdr::initScene()
     prog.setUniform("BlurTex1", 1);
     prog.setUniform("BlurTex2", 2);
 
+    GLuint noiseTex = NoiseTex::generate2DTex(16.0f);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, noiseTex);
+
+    rustProg.use();
+    rustProg.setUniform("NoiseTex", 0);
 }
 
 void Scene_Hdr::setupFBO() {
@@ -225,6 +232,16 @@ void Scene_Hdr::render()
     pass3();
     pass4();
     pass5();
+
+    rustProg.use();
+    rustProg.setUniform("MaterialColour", vec4(0.7255f, 0.255f, 0.055f, 1.0f));
+    rustProg.setUniform("ReflectFactor", 0.85f);
+
+    model = mat4(1.0f);
+    model = glm::translate(model, vec3(0.0f, -1.0f, 0.0f));
+    model = glm::rotate(model, glm::radians(-90.0f), vec3(1.0f, 0.0f, 0.0f));
+    setMatrices(rustProg);
+    teapot.render();
 }
 
 void Scene_Hdr::computeLogAveLuminance()
@@ -278,7 +295,7 @@ void Scene_Hdr::pass2()
     model = mat4(1.0f);
     view = mat4(1.0f);
     projection = mat4(1.0f);
-    setMatrices();
+    setMatrices(prog);
 
     // Render the full-screen quad
     glBindVertexArray(fsQuad);
@@ -329,13 +346,13 @@ void Scene_Hdr::pass5()
     glBindSampler(1, nearestSampler);
 }
 
-void Scene_Hdr::setMatrices()
+void Scene_Hdr::setMatrices(GLSLProgram& p)
 {
     mat4 mv = view * model;
-    prog.setUniform("ModelViewMatrix", mv);
-    prog.setUniform("NormalMatrix",
+    p.setUniform("ModelViewMatrix", mv);
+    p.setUniform("NormalMatrix",
         mat3(vec3(mv[0]), vec3(mv[1]), vec3(mv[2])));
-    prog.setUniform("MVP", projection * mv);
+    p.setUniform("MVP", projection * mv);
 }
 
 void Scene_Hdr::resize(int w, int h)
@@ -352,6 +369,11 @@ void Scene_Hdr::compile()
         prog.compileShader("shader/hdr.vert");
         prog.compileShader("shader/hdr.frag");
         prog.link();
+
+        rustProg.compileShader("shader/rust_metal.vert");
+        rustProg.compileShader("shader/rust_metal.frag");
+        rustProg.link();
+
         prog.use();
     }
     catch (GLSLProgramException& e) {
@@ -389,18 +411,18 @@ void Scene_Hdr::drawScene()
 
     // The backdrop plane
     model = glm::rotate(mat4(1.0f), glm::radians(90.0f), vec3(1.0f, 0.0f, 0.0f));
-    setMatrices();
+    setMatrices(prog);
     plane.render();
 
     // The bottom plane
     model = glm::translate(mat4(1.0f), vec3(0.0f, -5.0f, 0.0f));
-    setMatrices();
+    setMatrices(prog);
     plane.render();
 
     // Cube
     prog.setUniform("Material.Kd", vec3(0.2f, 0.7f, 0.9f));
     model = glm::translate(mat4(1.0f), vec3(-3.0f, -3.0f, 2.0f));
-    setMatrices();
+    setMatrices(prog);
     cube.render();
 
     // Top plane
@@ -410,15 +432,15 @@ void Scene_Hdr::drawScene()
     plane.render();*/
 
     // Torus
-    //prog.setUniform("Material.Kd", vec3(0.4f, 0.9f, 0.4f));
-    //model = glm::translate(mat4(1.0f), vec3(-3.0f, -3.0f, 2.0f));
-    //setMatrices();
-    //torus.render();
+    prog.setUniform("Material.Kd", vec3(0.4f, 0.9f, 0.4f));
+    model = glm::translate(mat4(1.0f), vec3(-3.0f, -3.0f, 2.0f));
+    setMatrices(prog);
+    torus.render();
 
     // Sphere
     prog.setUniform("Material.Kd", vec3(0.4f, 0.9f, 0.4f));
     model = glm::translate(mat4(1.0f), vec3(-3.0f, -3.0f, 2.0f));
-    setMatrices();
+    setMatrices(prog);
     sphere.render();
 
     // Teapot

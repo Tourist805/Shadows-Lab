@@ -65,18 +65,18 @@ vec3 microfacetModel(int lightIdx, vec3 position, vec3 n)
 	vec3 l = vec3(0.0);
 	vec3 lightI = Light[lightIdx].L;
 
-//	if(Light[lightIdx].Position.w == 0.0)
-//	{
-//		// Directional Light
-//		l = normalize(Light[lightIdx].Position.xyz);
-//	}
-//	else
-//	{
+	if(Light[lightIdx].Position.w == 0.0)
+	{
+		// Directional Light
+		l = normalize(Light[lightIdx].Position.xyz);
+	}
+	else
+	{
 		l = Light[lightIdx].Position.xyz - Position;
 		float dist = length(l);
 		l = normalize(l);
 		lightI /= (dist * dist);
-	//}
+	}
 
 	vec3 v = normalize(-position);
 	vec3 h = normalize(v + l);
